@@ -1,0 +1,59 @@
+:root {
+  --bg:#121212;
+  --card:#1e1e1e;
+  --text:#e0e0e0;
+  --accent:#2196f3;
+  --border:#333;
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  padding:20px;
+  touch-action:manipulation;
+  overflow:hidden;
+}
+
+.container{width:100%;max-width:650px;display:flex;flex-direction:column;gap:20px;}
+h1{font-size:26px;margin-bottom:10px;text-align:center;}
+.panel{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.5);display:flex;flex-direction:column;gap:12px;}
+label{font-weight:600;display:block;margin-bottom:4px;}
+input,select,button{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:#2a2a2a;color:var(--text);font-size:16px;}
+input[type="number"]{-moz-appearance:textfield;}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+button{background:var(--accent);color:#fff;font-weight:bold;cursor:pointer;border:none;transition:0.2s;}
+button:hover{background:#1976d2;}
+button:disabled{opacity:0.5;cursor:not-allowed;}
+.row{display:flex;gap:10px;flex-wrap:wrap;}
+.row>div{flex:1;min-width:120px;}
+.btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px;}
+small{opacity:.7;}
+
+#user-info{display:flex;flex-direction:column;gap:4px;background:#2a2a2a;padding:12px 16px;border-radius:8px;border:1px solid var(--border);font-weight:500;font-size:14px;color:var(--text);margin-bottom:10px;}
+#user-info div{display:flex;justify-content:space-between;flex-wrap:wrap;}
+#user-info span.name{color:var(--accent);font-weight:bold;}
+#user-info span.validity{font-style:italic;opacity:.85;transition:all .3s ease;}
+
+#key-container{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:var(--card);padding:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.5);max-width:400px;margin-left:auto;margin-right:auto;margin-top:40px;}
+#key-container input{width:100%;max-width:300px;padding:10px;border-radius:8px;border:1px solid var(--border);background:#2a2a2a;color:var(--text);font-size:16px;}
+#key-container button{width:100%;max-width:300px;padding:10px;border-radius:8px;border:none;background:var(--accent);color:#fff;font-weight:bold;cursor:pointer;transition:.2s;}
+#key-container button:hover{background:#1976d2;}
+#key-container p{text-align:center;margin:0;font-size:14px;color:#ff4c4c;}
+
+#whatsapp-btn{position:fixed;bottom:20px;right:20px;z-index:9999;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;justify-content:center;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.3);cursor:pointer;transition:transform .2s;}
+#whatsapp-btn img{width:35px;height:35px;}
+#whatsapp-btn:hover{transform:scale(1.1);}
+
+.file-upload-wrapper{display:flex;align-items:center;gap:10px;background:#2a2a2a;border:1px solid var(--border);border-radius:8px;padding:8px 12px;}
+.file-upload-wrapper input[type="file"]{display:none;}
+.file-upload-btn{background:var(--accent);color:#fff;font-weight:bold;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;transition:background .2s,transform .1s;}
+.file-upload-btn:hover{background:#1976d2;}
+.file-upload-btn:active{transform:scale(0.95);}
+.file-name{flex:1;color:var(--text);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
