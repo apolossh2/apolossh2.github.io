@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="manifest" href="/painel/manifest.json">
+<meta name="theme-color" content="#3367D6">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="msapplication-TileColor" content="#3367D6">
+<title>Gerador de Painel para Imprimir e Colar</title>
+<link rel="stylesheet" href="/painel/style.css">
+<style>
+#preview-img {
+  display: none;
+  margin-top: 10px;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+  opacity: 0;
+}
+#preview-img.show {
+  opacity: 1;
+}
+#preview-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+</style>
+</head>
+<body>
+
+<div class="container protected">
+  <div class="panel">
+    <h1>Gerador de Painel</h1>
+
+    <div id="user-info" style="display:none;">
+      <div>Usuário: <span class="name"></span></div>
+      <div>Validade: <span class="validity"></span></div>
+    </div>
+
+    <label>Imagem do painel:</label>
+    <div class="file-upload-wrapper">
+      <input id="file" type="file" accept="image/*">
+      <button type="button" class="file-upload-btn">Selecionar Imagem</button>
+      <span class="file-name">Nenhum arquivo selecionado</span>
+      <img id="preview-img" src="" alt="Preview">
+    </div>
+
+    <label>Orientação da página:</label>
+    <select id="orient">
+      <option value="portrait">Vertical (A4 retrato)</option>
+      <option value="landscape">Horizontal (A4 paisagem)</option>
+    </select>
+
+    <label>Divisão em partes:</label>
+    <select id="preset">
+      <option value="1x2">2 Folhas (1 × 2)</option>
+      <option value="2x2">4 Folhas (2 × 2)</option>
+      <option value="2x3">6 Folhas (2 × 3)</option>
+      <option value="3x3" selected>9 Folhas (3 × 3)</option>
+      <option value="3x4">12 Folhas (3 × 4)</option>
+      <option value="custom">Personalizar...</option>
+    </select>
+
+    <div id="customGrid" style="display:none;" class="row">
+      <div><label>Linhas:</label><input id="rows" type="number" min="1" value="2"></div>
+      <div><label>Colunas:</label><input id="cols" type="number" min="1" value="2"></div>
+    </div>
+
+    <div class="btns">
+      <button id="gen" disabled>Gerar PDF</button>
+      <button id="print" style="display:none;">Imprimir</button>
+      <button id="download" style="display:none;">Baixar PDF</button>
+    </div>
+  </div>
+</div>
+
+<div id="key-container">
+  <label for="user-key">Cole sua KEY para acessar a página:</label><br>
+  <input type="text" id="user-key"><br>
+  <button id="submit-key">Acessar</button>
+  <p id="key-message"></p>
+</div>
+
+<div id="whatsapp-btn" title="Fale conosco no WhatsApp">
+  <img src="/icons/WhatsApp.svg" alt="WhatsApp">
+</div>
+
+<script src="painel/jspdf.umd.min.js"></script>
+<script src="painel/script.js"></script>
+</body>
+</html>
